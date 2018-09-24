@@ -1,0 +1,14 @@
+first use:
+
+1) from main directory, create empty disk
+./scripts/create_disk.sh
+2) mount the disk into ./mnt
+ ./script/mount_rootfs.sh
+3) create rootfs inside this disk
+./scripts/create_rootfs.sh
+4) build a default kernel for qemu
+./script/build_kernel
+5) start qemu
+./script/start_qemu.sh
+
+
