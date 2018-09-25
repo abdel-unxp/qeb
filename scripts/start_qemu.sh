@@ -1,1 +1,1 @@
-qemu-system-x86_64 -hda ./hdd.img -kernel kernel/linux-4.4.157/arch/x86_64/boot/bzImage -boot c  -nographic -serial mon:stdio -append 'root=/dev/sda console=ttyS0' --enable-kvm
+qemu-system-x86_64 -hda ./hdd.img -kernel kernel/linux-4.4.157/arch/x86_64/boot/bzImage -boot c  -nographic -serial mon:stdio -append 'root=/dev/sda rw console=ttyS0' -device e1000,netdev=net0 -netdev user,id=net0,net=192.168.50.0/24,dhcpstart=192.168.50.50,hostfwd=tcp::2222-:22 --enable-kvm

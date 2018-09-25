@@ -2,13 +2,14 @@ first use:
 
 1) from main directory, create empty disk
 ./scripts/create_disk.sh
-2) mount the disk into ./mnt
- ./script/mount_rootfs.sh
-3) create rootfs inside this disk
+2) create rootfs inside this disk
 ./scripts/create_rootfs.sh
-4) build a default kernel for qemu
+3) build a default kernel for qemu
 ./script/build_kernel
-5) start qemu
+4) be sure that ./mnt is empty (ie: hdd.img is unmounted
+because you dont want qemu to write to hdd.img while
+the host is also writting to it.
+4) start qemu
 ./script/start_qemu.sh
 
 

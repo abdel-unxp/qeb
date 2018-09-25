@@ -1,5 +1,7 @@
 #!/bin/sh
 
+./scripts/mount_rootfs.sh
+
 sudo apt-get install qemu qemu-user qemu-user-static \
  binfmt-support debootstrap dosfstools
 
