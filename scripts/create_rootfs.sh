@@ -30,4 +30,7 @@ proc /proc proc defaults 0 0
 EOF
 '
 
+echo "****** ENTER ROOT PASSWORD ********"
+sudo passwd --root /home/abdel/progs/mas2_poc/mnt
+
 sudo umount ./mnt
