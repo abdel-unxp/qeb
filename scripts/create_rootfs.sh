@@ -20,10 +20,8 @@ sudo sh -c 'echo -e 127.0.0.1\\nbt_poc >> mnt/etc/hosts'
 sudo sh -c 'cat > mnt/etc/network/interfaces << EOF
 auto lo
 iface lo inet loopback
-auto eth0
-iface eth0 inet dhcp
-auto wlan0
-iface wlan0 inet manual
+auto enp0s3
+iface enp0s3 inet dhcp
 EOF
 '
 sudo cp /etc/resolv.conf mnt/etc
@@ -33,6 +31,10 @@ EOF
 '
 
 echo "****** ENTER ROOT PASSWORD ********"
-sudo passwd --root /home/abdel/progs/mas2_poc/mnt
+sudo passwd --root `pwd`/mnt
+
+sudo useradd --root `pwd`/mnt user
+echo "****** ENTER user password ********"
+sudo passwd user --root `pwd`/mnt
 
 sudo umount ./mnt
