@@ -7,15 +7,12 @@ cd kernel
 wget -c https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-${VS}.tar.xz
 if [ ! -e linux-${VS} ]; then
     tar xf linux-${VS}.tar.xz;
+    mv linux-${VS}/* .
 fi
-pushd .
-cd linux-${VS}
 make mrproper
-#cp ../../scripts/kernel_config-4.4_qemu ./linux-${VS}
-#make oldconfig
 make x86_64_defconfig
 make kvmconfig
 make -j 16
-cp linux-${VS}/vmlinux ../../
+make modules_prepare
 popd
 
