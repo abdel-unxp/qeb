@@ -1,4 +1,5 @@
-MODULES := "hello_world"
+MODULES := hello_world/ netitf/
+#MODULES :=  $(wildcard */.)
 TOPTARGETS := all clean
 
 all: $(MODULES)
