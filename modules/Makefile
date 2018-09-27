@@ -1,12 +1,10 @@
-KDIR := ../kernel
+MODULES := "hello_world"
+TOPTARGETS := all clean
 
-obj-m := test.o
-test-objs := test_main.o
-ccflags-y += -g
-test-objs += test.o
+all: $(MODULES)
 
-all:
-	make -C ${KDIR}  M=$(PWD) modules
+$(TOPTARGETS): $(MODULES)
+$(MODULES):
+	$(MAKE) -C $@ $(MAKECMDGOALS)
 
-clean:
-	make -C ${KDIR} M=$(PWD) clean
+.PHONY: $(TOPTARGETS) $(MODULES)
